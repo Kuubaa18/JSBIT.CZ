@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo - Bezpečné Uložení Kryptoměn</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Světlé pozadí pro kontrast */
+        }
+        .logo {
+            position: relative;
+            width: 300px; /* Šířka loga */
+            height: 300px; /* Výška loga */
+            background-color: #003366; /* Tmavě modrý štít */
+            border-radius: 10px; /* Zaoblené rohy */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Barva textu */
+            font-size: 24px; /* Velikost písma */
+            font-family: Arial, sans-serif; /* Styl písma */
+        }
+        .blockchain-nodes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(0, 0, 255, 0.2) 10%, transparent 10%);
+            background-size: 50px 50px; /* Velikost uzlů */
+            border-radius: 10px; /* Zaoblené rohy pro uzly */
+            z-index: 0; /* Umístění pozadí pod štít */
+        }
+        .logo-text {
+            position: relative;
+            z-index: 1; /* Zajištění, že text bude nad pozadím */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div class="blockchain-nodes"></div>
+        <div class="logo-text">Název Firmy</div>
+    </div>
+</body>
+</html>

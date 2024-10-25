@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testovací Chatbot</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        #chat { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background: white; }
+        #messages { margin-bottom: 20px; max-height: 300px; overflow-y: auto; }
+        .message { margin: 10px 0; }
+        .user { text-align: right; }
+        .bot { text-align: left; }
+        input { width: calc(100% - 100px); padding: 10px; }
+        button { padding: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="chat">
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Napište zprávu..." />
+    <button onclick="sendMessage()">Odeslat</button>
+</div>
+
+<script>
+    function sendMessage() {
+        const userInput = document.getElementById('userInput');
+        const message = userInput.value.trim();
+        if (message === "") return;
+
+        displayMessage(message, 'user');
+        userInput.value = '';
+
+        const botResponse = getBotResponse(message);
+        displayMessage(botResponse, 'bot');
+    }
+
+    function displayMessage(message, sender) {
+        const messagesDiv = document.getElementById('messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', sender);
+        messageDiv.textContent = message;
+        messagesDiv.appendChild(messageDiv);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function getBotResponse(userMessage) {
+        const lowerMessage = userMessage.toLowerCase();
+        
+        if (lowerMessage.includes('ahoj')) {
+            return "Ahoj! Jak vám mohu pomoci?";
+        } else if (lowerMessage.includes('jak se máš')) {
+            return "Jsem tu, abych vám pomohl! Jak mohu asistovat?";
+        } else if (lowerMessage.includes('co nabízíte')) {
+            return "Nabízíme informace o architektuře a poradenství v této oblasti.";
+        } else {
+            return "Promiňte, nerozumím. Můžete zkusit otázku jinak?";
+        }
+    }
+</script>
+
+</body>
+</html>
